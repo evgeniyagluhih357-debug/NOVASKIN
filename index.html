@@ -75,24 +75,25 @@ section{position:relative;overflow:hidden}
 
 /* 1. первый экран */
 #hero{background:linear-gradient(115deg,#c3c9fc 0%,#d4d3f7 40%,#f3e4dd 75%,#fbecc8 100%);display:flex;align-items:center}
-#hero .photo{position:absolute;right:0;bottom:0;top:0;width:min(66%,1010px);background:var(--im-hero) right bottom/cover no-repeat;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 28%);mask-image:linear-gradient(to right,transparent 0,#000 28%)}
+#hero .photo{position:absolute;right:0;bottom:0;top:0;width:min(66%,1010px);background:var(--im-hero) right top/cover no-repeat;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 28%);mask-image:linear-gradient(to right,transparent 0,#000 28%)}
 #hero .txt{position:relative;z-index:2;max-width:560px}
-#hero h1{font-size:clamp(54px,8.6vw,128px);line-height:1.06;margin-bottom:26px}
+#hero h1{font-size:clamp(54px,5.6vw,82px);line-height:1.24;margin-bottom:26px}
 #hero p{font-size:clamp(17px,1.6vw,22px);color:var(--soft);max-width:380px;margin-bottom:34px}
-.concept{display:block;margin-top:22px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);opacity:.85}
+.concept{display:block;margin-top:22px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
 
 /* 2. продукты */
 #products{padding:110px var(--pad) 70px;background:linear-gradient(180deg,#e0defa,#f2e9f4)}
-.grid4{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:12px;min-height:80vh}
+.grid4{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:12px;min-height:80vh;max-width:1500px;margin:0 auto}
 .intro{border-radius:36px;padding:40px 32px;background:linear-gradient(160deg,#c7cbf9,#e6dffb 60%,#f1ecfb);display:flex;flex-direction:column;justify-content:center;gap:20px}
-.intro h2{font-size:clamp(46px,5.4vw,82px)}
+.intro h2{font-size:clamp(34px,3.4vw,50px);line-height:1.18}
 .intro .btn{align-self:flex-start}
 .card{border-radius:36px;display:flex;flex-direction:column;padding:34px 28px 30px;overflow:hidden;position:relative}
 .card .num{font-size:22px;font-weight:300;padding-bottom:10px;position:relative}
 .card .num:after{content:"";position:absolute;left:0;bottom:0;width:36px;height:1px;background:var(--ink);opacity:.5}
 .card h3{font-weight:400;font-size:clamp(19px,1.7vw,24px);margin-top:18px;line-height:1.25}
-.card .pic{flex:1;margin:18px -28px 18px;background-size:cover;background-position:center;min-height:240px}
+.card .pic{flex:none;aspect-ratio:340/480;margin:18px -28px 18px;background-size:cover;background-position:center}
 .card .btn{align-self:center}
+.card .price{margin-top:6px;font-size:15px;color:var(--soft)}
 .c-blue{background:#a8cdf3}.c-pink{background:#f4c9cf}.c-yellow{background:#e9eab2}
 .im-vitc{background-image:var(--im-vitc)}
 .im-cream{background-image:var(--im-cream)}
@@ -111,7 +112,7 @@ section{position:relative;overflow:hidden}
 #about{background:linear-gradient(180deg,#c8ccfb 0%,#e3dcf6 45%,#fbe5d6 100%);min-height:100vh;padding:150px var(--pad) 0;display:flex;flex-direction:column;align-items:center;text-align:center}
 #about .water{position:absolute;left:0;right:0;bottom:0;height:42%;background:var(--im-water) center bottom/cover no-repeat;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 38%);mask-image:linear-gradient(to bottom,transparent 0,#000 38%)}
 #about .inner{position:relative;z-index:2;max-width:640px}
-#about h2{font-weight:300;font-size:clamp(42px,6vw,90px);line-height:1.08;text-transform:uppercase;margin:20px 0 28px;color:#4b4b57}
+#about h2{font-weight:300;font-size:clamp(32px,3.8vw,54px);line-height:1.08;text-transform:uppercase;margin:20px 0 28px;color:#4b4b57}
 #about h2 .blue{display:block}
 #about p{font-size:clamp(16px,1.5vw,20px);color:var(--soft)}
 .values{position:relative;z-index:2;margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
@@ -128,6 +129,7 @@ section{position:relative;overflow:hidden}
 .qstep h2{font-size:clamp(44px,5.8vw,90px);margin:14px 0 20px}
 .qstep .lead{font-size:clamp(16px,1.5vw,20px);color:var(--soft);max-width:430px}
 .progress{display:flex;align-items:center;gap:20px;margin:32px 0;color:var(--soft);font-size:15px}
+.progress span{white-space:nowrap}
 .bar{flex:0 1 380px;height:3px;background:rgba(63,63,77,.18);border-radius:3px;overflow:hidden}
 .bar i{display:block;height:100%;background:var(--blue)}
 .opts{display:flex;flex-direction:column;gap:12px;max-width:500px}
@@ -135,11 +137,12 @@ section{position:relative;overflow:hidden}
 .opt:hover{border-color:rgba(10,165,255,.5)}
 .opt:has(input:checked){border-color:var(--blue);background:rgba(255,255,255,.85)}
 .opt .ico{flex:0 0 52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:22px}
+.opt .ico svg{width:26px;height:26px;fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .opt .txt{flex:1}
 .opt .dot{flex:0 0 24px;height:24px;border-radius:50%;border:1.5px solid #9a9aab;background:#fff}
 .opt:has(input:checked) .dot{border:7px solid var(--blue)}
 .quiz-actions{display:flex;gap:18px;align-items:center}
-.back{color:var(--soft);font-size:14px;text-decoration:underline;cursor:pointer}
+.back{color:var(--soft);font-size:14px;text-decoration:underline;cursor:pointer;display:inline-block;padding:12px 4px}
 /* «Далее» неактивна, пока не выбран ответ */
 #quiz:not(:has(input[name=q1]:checked)) .next1,
 #quiz:not(:has(input[name=q2]:checked)) .next2,
@@ -220,15 +223,27 @@ footer{padding:60px var(--pad) 40px;background:#e4dcf6;display:flex;flex-wrap:wr
 footer .logo{font-size:26px}
 footer ul{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:15px;color:var(--soft)}
 footer small{flex-basis:100%;color:var(--soft);font-size:13px}
+.demo-note{color:var(--soft);font-size:14px;margin:-26px 0 34px}
+.sheet.wide{grid-template-columns:1fr;max-width:1180px;padding:60px 40px 44px;align-items:start}
+.sheet.wide h3{font-size:34px;margin:0 0 6px}
+.sheet.wide .pcs{margin-top:28px}
+#catalog .pc{display:flex}
+.sheet .pc h3{font-size:16px;font-weight:500;margin:0 6px;min-height:42px;line-height:1.3}
+.sheet .pc .vol{margin:4px 6px 14px;font-size:14px}
+.sheet .pc .tag{margin:16px 6px 4px}
+.flink{cursor:pointer}
+.flink:hover{color:var(--ink)}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--blue-d);outline-offset:3px;border-radius:8px}
+.opt:has(input:focus-visible){outline:3px solid var(--blue-d);outline-offset:3px}
 
 /* всплывающие «облака» с информацией (открываются без скриптов, по ссылке-якорю) */
 .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
-#m-vitc:checked ~ #p-vitc,#m-cream:checked ~ #p-cream,#m-bal:checked ~ #p-bal,#m-login:checked ~ #login{display:flex}
+#m-vitc:checked ~ #p-vitc,#m-cream:checked ~ #p-cream,#m-bal:checked ~ #p-bal,#m-catalog:checked ~ #catalog,#m-login:checked ~ #login{display:flex}
 .backdrop{position:absolute;inset:0;background:rgba(60,52,110,.38);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.sheet{position:relative;z-index:2;max-width:880px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1.1fr;border-radius:56px;background:linear-gradient(150deg,rgba(255,255,255,.96),rgba(244,236,252,.94) 60%,rgba(252,236,228,.94));box-shadow:0 40px 90px -30px rgba(70,60,140,.55),inset 0 0 0 1.5px #fff;animation:pop .35s ease}
+.sheet{position:relative;z-index:2;max-width:880px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1.1fr;align-items:center;border-radius:56px;background:linear-gradient(150deg,rgba(255,255,255,.96),rgba(244,236,252,.94) 60%,rgba(252,236,228,.94));box-shadow:0 40px 90px -30px rgba(70,60,140,.55),inset 0 0 0 1.5px #fff;animation:pop .35s ease}
 @keyframes pop{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
 .sheet.narrow{grid-template-columns:1fr;max-width:420px;padding:44px 36px;text-align:center}
-.sheet .pimg{background-size:cover;background-position:center;min-height:400px;margin:14px;border-radius:44px}
+.sheet .pimg{background-size:cover;background-position:center;aspect-ratio:340/480;margin:14px;border-radius:44px;align-self:center}
 .sheet .pbody{padding:44px 40px 40px 26px}
 .sheet h3{font-size:28px;font-weight:400;line-height:1.2;margin:10px 0 6px}
 .sheet .vol{color:var(--soft);margin-bottom:16px}
@@ -257,7 +272,7 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
   #hero .photo{position:relative;width:calc(100% + 2*var(--pad));height:420px;margin:0 calc(-1*var(--pad));-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 25%);mask-image:linear-gradient(to bottom,transparent 0,#000 25%)}
   .grid4{grid-template-columns:1fr 1fr;min-height:0}
   .intro{grid-column:1/-1;padding:34px 26px}
-  .card .pic{min-height:200px}
+  .card .pic{min-height:0}
   #balance{flex-direction:column;align-items:flex-start;padding-bottom:0}
   #balance .photo{position:relative;width:calc(100% + 2*var(--pad));height:420px;margin:30px calc(-1*var(--pad)) 0;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 22%);mask-image:linear-gradient(to bottom,transparent 0,#000 22%)}
   #about{padding-top:110px}
@@ -268,7 +283,8 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
   .qstep,.st4{grid-template-columns:1fr}
   .reviews{grid-template-columns:1fr}
   .sheet{grid-template-columns:1fr;border-radius:40px}
-  .sheet .pimg{min-height:240px;margin:12px 12px 0}
+  .sheet.wide{padding:54px 16px 28px}
+  .sheet .pimg{min-height:0;margin:12px 12px 0}
   .sheet .pbody{padding:26px 28px 34px}
   .ritual{grid-template-columns:1fr}
 }
@@ -281,7 +297,7 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
 <body>
 
 <input type="checkbox" id="menu">
-<input class="vh" type="radio" name="modal" id="m-none" checked><input class="vh" type="radio" name="modal" id="m-vitc"><input class="vh" type="radio" name="modal" id="m-cream"><input class="vh" type="radio" name="modal" id="m-bal"><input class="vh" type="radio" name="modal" id="m-login">
+<input class="vh" type="radio" name="modal" id="m-none" checked><input class="vh" type="radio" name="modal" id="m-vitc"><input class="vh" type="radio" name="modal" id="m-cream"><input class="vh" type="radio" name="modal" id="m-bal"><input class="vh" type="radio" name="modal" id="m-catalog"><input class="vh" type="radio" name="modal" id="m-login">
 <header id="top">
   <a class="logo" href="#hero">NOVA SKIN</a>
   <span class="logo-line"></span>
@@ -301,10 +317,10 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
 <!-- 1. Первый экран -->
 <section id="hero" class="screen">
   <div class="txt">
-    <h1 class="display"><span class="white">Сияние</span><br><span class="blue">кожи —</span><br><span class="white">каждый день</span></h1>
-    <p>Уход, созданный для реальных потребностей кожи.</p>
-    <a class="btn solid" href="#quiz">Подобрать уход <span class="arr">→</span></a>
-    <span class="concept">Учебный концепт · не настоящий магазин</span>
+    <h1 class="display"><span class="white">Уход для</span><br><span class="blue">вашей кожи</span></h1>
+    <p>Ответьте на 3 вопроса и получите схему на утро и вечер. 10 средств от 890&nbsp;₽.</p>
+    <a class="btn solid" href="#quiz">Подобрать мой уход <span class="arr">→</span></a>
+    <span class="concept">Учебный концепт · цены и товары придуманные</span>
   </div>
   <div class="photo" role="img" aria-label="Сыворотка NOVA SKIN в руках"></div>
 </section>
@@ -313,27 +329,30 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
 <section id="products">
   <div class="grid4">
     <div class="intro">
-      <span class="eyebrow">Наши самые</span>
-      <h2 class="display"><span class="white">Популярные</span><br><span class="blue">товары</span></h2>
-      <a class="btn" href="#quiz">Подобрать уход <span class="arr">→</span></a>
+      <h2 class="display"><span class="white">Три средства</span><br><span class="blue">от 1&nbsp;690&nbsp;₽</span></h2>
+      <a class="btn" href="#quiz">Выбрать за минуту <span class="arr">→</span></a>
+      <label class="btn solid" for="m-catalog">Все средства <span class="arr">→</span></label>
     </div>
     <article class="card c-blue">
       <div class="num">01</div>
       <h3>Сыворотка<br>с витамином C</h3>
+      <div class="price">1&nbsp;790&nbsp;₽</div>
       <div class="pic im-vitc"></div>
-      <label class="btn small" for="m-vitc">Посмотреть <span class="arr">→</span></label>
+      <label class="btn small" for="m-vitc">Про витамин C <span class="arr">→</span></label>
     </article>
     <article class="card c-pink">
       <div class="num">02</div>
       <h3>Увлажняющий<br>крем для лица</h3>
+      <div class="price">1&nbsp;690&nbsp;₽</div>
       <div class="pic im-cream"></div>
-      <label class="btn small" for="m-cream">Посмотреть <span class="arr">→</span></label>
+      <label class="btn small" for="m-cream">Про увлажнение <span class="arr">→</span></label>
     </article>
     <article class="card c-yellow">
       <div class="num">03</div>
       <h3>Сыворотка-<br>баланс</h3>
+      <div class="price">1&nbsp;890&nbsp;₽</div>
       <div class="pic im-bal"></div>
-      <label class="btn small" for="m-bal">Посмотреть <span class="arr">→</span></label>
+      <label class="btn small" for="m-bal">Про баланс <span class="arr">→</span></label>
     </article>
   </div>
 </section>
@@ -341,11 +360,10 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
 <!-- 3. Сыворотка-баланс -->
 <section id="balance" class="screen">
   <div class="txt">
-    <span class="eyebrow">Сыворотка-баланс</span>
     <h2>Спокойствие <span class="blue">и комфорт</span></h2>
     <div class="sub">для чувствительной кожи</div>
-    <p class="lead">Лёгкий крем, который увлажняет, успокаивает и укрепляет защитный барьер кожи каждый день.</p>
-    <label class="btn solid" for="m-bal">Попробовать <span class="arr">→</span></label>
+    <p class="lead">Лёгкая сыворотка увлажняет, успокаивает и укрепляет защитный барьер кожи. 30&nbsp;мл, 1&nbsp;890&nbsp;₽.</p>
+    <label class="btn solid" for="m-bal">Кому подходит <span class="arr">→</span></label>
   </div>
   <div class="photo" role="img" aria-label="Сыворотка-баланс NOVA SKIN"></div>
 </section>
@@ -353,11 +371,10 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
 <!-- 4. О бренде -->
 <section id="about">
   <div class="inner">
-    <span class="eyebrow">О бренде</span>
-    <h2>Здоровая<span class="blue">и сияющая</span>кожа</h2>
-    <p>Мы создаём эффективный и бережный уход, который помогает сохранить естественную красоту вашей кожи каждый день.</p>
+    <h2>Десять средств<span class="blue">на утро и вечер</span></h2>
+    <p>От очищения до SPF и ночного крема. Вы выбираете, что беспокоит кожу, а схему на утро и вечер соберём мы.</p>
   </div>
-  <div class="values"><span>Бережный состав</span><span>Под потребности кожи</span><span>Без лишних шагов</span></div>
+  <div class="values"><span>Пенка или гель по типу кожи</span><span>Сыворотка под вашу задачу</span><span>Крем на день и на ночь</span></div>
   <div class="water"></div>
 </section>
 
@@ -372,56 +389,52 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
   <!-- вопрос 1 -->
   <div class="qstep st1">
     <div>
-      <span class="eyebrow">Подбор ухода</span>
       <h2 class="display"><span class="white">Что беспокоит</span><br><span class="blue">вашу кожу?</span></h2>
       <p class="lead">Мы подберём уход, который действительно отвечает вашим потребностям.</p>
       <div class="progress"><span>1 / 3</span><div class="bar"><i style="width:33%"></i></div></div>
       <div class="quiz-actions"><label for="s2" class="btn next1">Далее <span class="arr">→</span></label></div>
     </div>
     <div class="opts">
-      <label class="opt"><input class="vh" type="radio" name="q1" id="a0"><span class="ico" style="background:#e4e5fb">✦</span><span class="txt">Тусклый тон<br>и нет сияния</span><span class="dot"></span></label>
-      <label class="opt"><input class="vh" type="radio" name="q1" id="a1"><span class="ico" style="background:#fbf0cf">💧</span><span class="txt">Сухость<br>и ощущение стянутости</span><span class="dot"></span></label>
-      <label class="opt"><input class="vh" type="radio" name="q1" id="a2"><span class="ico" style="background:#fbe3e8">〰</span><span class="txt">Жирный блеск<br>и расширенные поры</span><span class="dot"></span></label>
-      <label class="opt"><input class="vh" type="radio" name="q1" id="a3"><span class="ico" style="background:#dcf1f1">❋</span><span class="txt">Чувствительность<br>и покраснения</span><span class="dot"></span></label>
+      <label class="opt"><input class="vh" type="radio" name="q1" id="a0"><span class="ico" style="background:#e4e5fb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg></span><span class="txt">Тусклый тон<br>и нет сияния</span><span class="dot"></span></label>
+      <label class="opt"><input class="vh" type="radio" name="q1" id="a1"><span class="ico" style="background:#fbf0cf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3.5 4.2 6 7 6 10a6 6 0 0 1-12 0c0-3 2.5-5.8 6-10z"/></svg></span><span class="txt">Сухость<br>и ощущение стянутости</span><span class="dot"></span></label>
+      <label class="opt"><input class="vh" type="radio" name="q1" id="a2"><span class="ico" style="background:#fbe3e8"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span><span class="txt">Жирный блеск<br>и расширенные поры</span><span class="dot"></span></label>
+      <label class="opt"><input class="vh" type="radio" name="q1" id="a3"><span class="ico" style="background:#dcf1f1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="txt">Чувствительность<br>и покраснения</span><span class="dot"></span></label>
     </div>
   </div>
 
   <!-- вопрос 2 -->
   <div class="qstep st2">
     <div>
-      <span class="eyebrow">Подбор ухода</span>
       <h2 class="display"><span class="white">Когда вы</span><br><span class="blue">ухаживаете?</span></h2>
       <p class="lead">Это поможет собрать схему на нужное время суток.</p>
       <div class="progress"><span>2 / 3</span><div class="bar"><i style="width:66%"></i></div></div>
       <div class="quiz-actions"><label for="s3" class="btn next2">Далее <span class="arr">→</span></label><label for="s1" class="back">Назад</label></div>
     </div>
     <div class="opts">
-      <label class="opt"><input class="vh" type="radio" name="q2" id="b0"><span class="ico" style="background:#fbf0cf">☀</span><span class="txt">Только утром</span><span class="dot"></span></label>
-      <label class="opt"><input class="vh" type="radio" name="q2" id="b1"><span class="ico" style="background:#e4e5fb">☾</span><span class="txt">Только вечером</span><span class="dot"></span></label>
-      <label class="opt"><input class="vh" type="radio" name="q2" id="b2"><span class="ico" style="background:#fbe3e8">☀☾</span><span class="txt">Утром и вечером</span><span class="dot"></span></label>
+      <label class="opt"><input class="vh" type="radio" name="q2" id="b0"><span class="ico" style="background:#fbf0cf"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span><span class="txt">Только утром</span><span class="dot"></span></label>
+      <label class="opt"><input class="vh" type="radio" name="q2" id="b1"><span class="ico" style="background:#e4e5fb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span><span class="txt">Только вечером</span><span class="dot"></span></label>
+      <label class="opt"><input class="vh" type="radio" name="q2" id="b2"><span class="ico" style="background:#fbe3e8"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="12" r="3"/><path d="M8 4v2M8 18v2M1 12h2M3 7l1.5 1.5M3 17l1.5-1.5"/><path d="M22 15a5 5 0 1 1-5-8 4 4 0 0 0 5 8z"/></svg></span><span class="txt">Утром и вечером</span><span class="dot"></span></label>
     </div>
   </div>
 
   <!-- вопрос 3 -->
   <div class="qstep st3">
     <div>
-      <span class="eyebrow">Подбор ухода</span>
       <h2 class="display"><span class="white">Какая текстура</span><br><span class="blue">вам ближе?</span></h2>
       <p class="lead">Выберите то, что приятнее наносить.</p>
       <div class="progress"><span>3 / 3</span><div class="bar"><i style="width:100%"></i></div></div>
-      <div class="quiz-actions"><label for="s4" class="btn next3">Показать результат <span class="arr">→</span></label><label for="s2" class="back">Назад</label></div>
+      <div class="quiz-actions"><label for="s4" class="btn next3">Показать мой уход <span class="arr">→</span></label><label for="s2" class="back">Назад</label></div>
     </div>
     <div class="opts">
-      <label class="opt"><input class="vh" type="radio" name="q3" id="c0"><span class="ico" style="background:#dcf1f1">💧</span><span class="txt">Лёгкая, как вода</span><span class="dot"></span></label>
-      <label class="opt"><input class="vh" type="radio" name="q3" id="c1"><span class="ico" style="background:#fbe3e8">☁</span><span class="txt">Нежная, кремовая</span><span class="dot"></span></label>
-      <label class="opt"><input class="vh" type="radio" name="q3" id="c2"><span class="ico" style="background:#e4e5fb">?</span><span class="txt">Не знаю, подскажите</span><span class="dot"></span></label>
+      <label class="opt"><input class="vh" type="radio" name="q3" id="c0"><span class="ico" style="background:#dcf1f1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3.5 4.2 6 7 6 10a6 6 0 0 1-12 0c0-3 2.5-5.8 6-10z"/></svg></span><span class="txt">Лёгкая, как вода</span><span class="dot"></span></label>
+      <label class="opt"><input class="vh" type="radio" name="q3" id="c1"><span class="ico" style="background:#fbe3e8"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-7.9A5.5 5.5 0 0 1 17 9.5 4.3 4.3 0 0 1 17 18H7z"/></svg></span><span class="txt">Нежная, кремовая</span><span class="dot"></span></label>
+      <label class="opt"><input class="vh" type="radio" name="q3" id="c2"><span class="ico" style="background:#e4e5fb"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"/></svg></span><span class="txt">Не знаю, подскажите</span><span class="dot"></span></label>
     </div>
   </div>
 
   <!-- результат -->
   <div class="qstep st4">
     <div class="res-head">
-      <span class="eyebrow">Ваш результат</span>
       <h2 class="display"><span class="white">Ваш уход</span> <span class="blue">готов</span></h2>
       <p class="lead">
         <span class="w w0">Поможет вернуть коже свежесть и ровный тон.</span><span class="w w1">Вернёт коже комфорт и ощущение увлажнения.</span><span class="w w2">Лёгкая текстура не перегружает кожу.</span><span class="w w3">Мягко успокаивает и укрепляет защитный барьер.</span>
@@ -429,16 +442,16 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
       </p>
     </div>
     <div class="pcs">
-      <div class="pc pc-pena"><div class="pimg2" role="img" aria-label="Очищающая пенка для сухой, тусклой и чувствительной кожи"></div><div class="tag">Очищение</div><h3>Очищающая пенка для сухой, тусклой и чувствительной кожи</h3><div class="vol">150 мл</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
-      <div class="pc pc-gel"><div class="pimg2" role="img" aria-label="Матирующий гель для умывания"></div><div class="tag">Очищение</div><h3>Матирующий гель для умывания</h3><div class="vol">150 мл</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
-      <div class="pc pc-vitc"><div class="pimg2" role="img" aria-label="Сыворотка с витамином C"></div><div class="tag">Актив</div><h3>Сыворотка с витамином C</h3><div class="vol">30 мл</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
-      <div class="pc pc-hyal"><div class="pimg2" role="img" aria-label="Сыворотка с гиалуроновой кислотой"></div><div class="tag">Актив</div><h3>Сыворотка с гиалуроновой кислотой</h3><div class="vol">30 мл</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
-      <div class="pc pc-niac"><div class="pimg2" role="img" aria-label="Сыворотка с ниацинамидом"></div><div class="tag">Актив</div><h3>Сыворотка с ниацинамидом</h3><div class="vol">30 мл</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
-      <div class="pc pc-bal"><div class="pimg2" role="img" aria-label="Сыворотка-баланс для чувствительной кожи"></div><div class="tag">Актив</div><h3>Сыворотка-баланс для чувствительной кожи</h3><div class="vol">30 мл</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
-      <div class="pc pc-cream"><div class="pimg2" role="img" aria-label="Увлажняющий крем для лица"></div><div class="tag">Крем на день</div><h3>Увлажняющий крем для лица</h3><div class="vol">50 мл</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
-      <div class="pc pc-gelcream"><div class="pimg2" role="img" aria-label="Лёгкий гель-крем для жирной кожи"></div><div class="tag">Крем на день</div><h3>Лёгкий гель-крем для жирной кожи</h3><div class="vol">50 мл</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
-      <div class="pc pc-spf"><div class="pimg2" role="img" aria-label="SPF-флюид 50"></div><div class="tag">Утренняя защита</div><h3>SPF-флюид 50</h3><div class="vol">40 мл</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
-      <div class="pc pc-night"><div class="pimg2" role="img" aria-label="Ночной восстанавливающий крем"></div><div class="tag">Вечерний уход</div><h3>Ночной восстанавливающий крем</h3><div class="vol">50 мл</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-pena"><div class="pimg2" role="img" aria-label="Очищающая пенка для сухой, тусклой и чувствительной кожи"></div><div class="tag">Очищение</div><h3>Очищающая пенка для сухой, тусклой и чувствительной кожи</h3><div class="vol">150&nbsp;мл · 890&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-gel"><div class="pimg2" role="img" aria-label="Матирующий гель для умывания"></div><div class="tag">Очищение</div><h3>Матирующий гель для умывания</h3><div class="vol">150&nbsp;мл · 890&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-vitc"><div class="pimg2" role="img" aria-label="Сыворотка с витамином C"></div><div class="tag">Актив</div><h3>Сыворотка с витамином C</h3><div class="vol">30&nbsp;мл · 1&nbsp;790&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-hyal"><div class="pimg2" role="img" aria-label="Сыворотка с гиалуроновой кислотой"></div><div class="tag">Актив</div><h3>Сыворотка с гиалуроновой кислотой</h3><div class="vol">30&nbsp;мл · 1&nbsp;790&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-niac"><div class="pimg2" role="img" aria-label="Сыворотка с ниацинамидом"></div><div class="tag">Актив</div><h3>Сыворотка с ниацинамидом</h3><div class="vol">30&nbsp;мл · 1&nbsp;790&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-bal"><div class="pimg2" role="img" aria-label="Сыворотка-баланс для чувствительной кожи"></div><div class="tag">Актив</div><h3>Сыворотка-баланс для чувствительной кожи</h3><div class="vol">30&nbsp;мл · 1&nbsp;890&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-cream"><div class="pimg2" role="img" aria-label="Увлажняющий крем для лица"></div><div class="tag">Крем на день</div><h3>Увлажняющий крем для лица</h3><div class="vol">50&nbsp;мл · 1&nbsp;690&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-gelcream"><div class="pimg2" role="img" aria-label="Лёгкий гель-крем для жирной кожи"></div><div class="tag">Крем на день</div><h3>Лёгкий гель-крем для жирной кожи</h3><div class="vol">50&nbsp;мл · 1&nbsp;590&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-spf"><div class="pimg2" role="img" aria-label="SPF-флюид 50"></div><div class="tag">Утренняя защита</div><h3>SPF-флюид 50</h3><div class="vol">40&nbsp;мл · 1&nbsp;290&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-night"><div class="pimg2" role="img" aria-label="Ночной восстанавливающий крем"></div><div class="tag">Вечерний уход</div><h3>Ночной восстанавливающий крем</h3><div class="vol">50&nbsp;мл · 1&nbsp;990&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
     </div>
     <div class="res-btns">
       <label for="s1" class="btn">Изменить ответы</label>
@@ -447,8 +460,9 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
 </section>
 <!-- Отзывы -->
 <section id="reviews" class="block">
-  <span class="eyebrow">Отзывы · концепт, отзывы придуманные</span>
-  <h2 class="title">Что говорят о NOVA SKIN</h2>
+  
+  <h2 class="title">Кожа без стянутости и покраснений</h2>
+  <p class="demo-note">Отзывы придуманные: это учебный концепт.</p>
   <div class="reviews">
     <div class="rev"><div class="stars">★★★★★</div><p>Кожа перестала стягиваться к вечеру. Крем лёгкий, не оставляет плёнки, подошёл на каждый день.</p><b>Анна</b><span>Увлажняющий крем</span></div>
     <div class="rev"><div class="stars">★★★★★</div><p>Сыворотка с витамином C быстро впитывается. Тон выглядит ровнее, а упаковка просто красивая.</p><b>Мария</b><span>Сыворотка с витамином C</span></div>
@@ -458,21 +472,22 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
 
 <!-- Вопросы -->
 <section id="faq" class="block">
-  <span class="eyebrow">Вопросы</span>
-  <h2 class="title">Частые вопросы</h2>
+  <h2 class="title">Вопросы и ответы</h2>
   <div class="faq">
-    <details><summary>Как работает подбор ухода?</summary><p>Вы отвечаете на три коротких вопроса: что беспокоит кожу, когда вы ухаживаете и какая текстура вам ближе. В конце сайт предлагает подходящее средство и схему на утро и вечер.</p></details>
+    <details><summary>Как работает подбор ухода?</summary><p>Вы отвечаете на три коротких вопроса: что беспокоит кожу, когда вы ухаживаете и какая текстура вам ближе. В конце мы предлагаем подходящие средства и схему на утро и вечер.</p></details>
     <details><summary>Подойдёт ли уход чувствительной коже?</summary><p>Для чувствительной кожи у нас есть сыворотка-баланс. Если вы не уверены, начните с небольшого количества средства на небольшом участке кожи.</p></details>
     <details><summary>Как пользоваться сывороткой с витамином C?</summary><p>Наносите на очищенную кожу утром, затем используйте увлажняющий крем. Днём не забывайте про защиту от солнца.</p></details>
-    <details><summary>Это настоящий магазин?</summary><p>Нет. Это учебный концепт сайта: товары, отзывы и покупка здесь показаны для примера.</p></details>
+    <details><summary>Сколько стоят средства и как доставка?</summary><p>Средства стоят от 890&nbsp;₽, сыворотки от 1&nbsp;790&nbsp;₽. Доставка по России 2-4 дня, бесплатно от 3&nbsp;000&nbsp;₽. Цифры демонстрационные.</p></details>
+    <details><summary>Можно ли вернуть средство?</summary><p>Да, в течение 14 дней, если упаковка не вскрыта. Условия демонстрационные.</p></details>
+    <details><summary>Это настоящий магазин?</summary><p>Нет. Это учебный концепт: товары, цены, отзывы и покупка показаны для примера.</p></details>
   </div>
 </section>
 
 <footer>
   <div><div class="logo">NOVA SKIN</div></div>
-  <ul><li><a href="#products">Продукты</a></li><li><a href="#quiz">Подбор ухода</a></li><li><a href="#about">О бренде</a></li></ul>
+  <ul><li><a href="#products">Продукты</a></li><li><label class="flink" for="m-catalog">Все средства</label></li><li><a href="#quiz">Подбор ухода</a></li><li><a href="#about">О бренде</a></li></ul>
   <ul><li><a href="#reviews">Отзывы</a></li><li><a href="#faq">Вопросы</a></li></ul>
-  <small>© NOVA SKIN · Учебный концепт сайта. Бренд, товары и отзывы придуманные.</small>
+  <small>© NOVA SKIN · Учебный концепт. Бренд, товары, цены и отзывы придуманные.</small>
 </footer>
 
 <!-- окна-«облака» с информацией о товарах -->
@@ -482,9 +497,8 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
     <label class="close" for="m-none" aria-label="Закрыть">×</label>
     <div class="pimg im-vitc"></div>
     <div class="pbody">
-      <span class="eyebrow">NOVA SKIN</span>
       <h3>Сыворотка для лица с витамином C</h3>
-      <div class="vol">30 мл</div>
+      <div class="vol">30&nbsp;мл · 1&nbsp;790&nbsp;₽</div>
       <p>Лёгкая сыворотка для ежедневного ухода. Помогает коже выглядеть свежей и сияющей.</p>
       <ul><li>Здоровое сияние</li><li>Ровный тон</li><li>Увлажнение</li></ul>
       <details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details>
@@ -498,9 +512,8 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
     <label class="close" for="m-none" aria-label="Закрыть">×</label>
     <div class="pimg im-cream"></div>
     <div class="pbody">
-      <span class="eyebrow">NOVA SKIN</span>
       <h3>Увлажняющий крем для лица</h3>
-      <div class="vol">50 мл</div>
+      <div class="vol">50&nbsp;мл · 1&nbsp;690&nbsp;₽</div>
       <p>Нежный крем для комфорта кожи в течение дня. Подходит для утреннего и вечернего ухода.</p>
       <ul><li>Глубокое увлажнение</li><li>Укрепление барьера</li><li>Здоровое сияние</li></ul>
       <details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details>
@@ -514,12 +527,32 @@ footer small{flex-basis:100%;color:var(--soft);font-size:13px}
     <label class="close" for="m-none" aria-label="Закрыть">×</label>
     <div class="pimg im-bal"></div>
     <div class="pbody">
-      <span class="eyebrow">NOVA SKIN</span>
       <h3>Сыворотка-баланс для чувствительной кожи</h3>
-      <div class="vol">30 мл</div>
+      <div class="vol">30&nbsp;мл · 1&nbsp;890&nbsp;₽</div>
       <p>Лёгкая текстура для чувствительной кожи. Помогает вернуть ощущение спокойствия и комфорта.</p>
       <ul><li>Успокаивает</li><li>Укрепляет защитный барьер</li><li>Увлажняет</li></ul>
       <details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="catalog">
+  <label class="backdrop" for="m-none" aria-label="Закрыть"></label>
+  <div class="sheet wide">
+    <label class="close" for="m-none" aria-label="Закрыть">×</label>
+    <h3>Все средства</h3>
+    <p>10 средств NOVA SKIN: от очищения до ночного крема. Цены и покупка демонстрационные.</p>
+    <div class="pcs">
+      <div class="pc pc-pena"><div class="pimg2" role="img" aria-label="Очищающая пенка для сухой, тусклой и чувствительной кожи"></div><div class="tag">Очищение</div><h3>Очищающая пенка для сухой, тусклой и чувствительной кожи</h3><div class="vol">150&nbsp;мл · 890&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-gel"><div class="pimg2" role="img" aria-label="Матирующий гель для умывания"></div><div class="tag">Очищение</div><h3>Матирующий гель для умывания</h3><div class="vol">150&nbsp;мл · 890&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-vitc"><div class="pimg2" role="img" aria-label="Сыворотка с витамином C"></div><div class="tag">Актив</div><h3>Сыворотка с витамином C</h3><div class="vol">30&nbsp;мл · 1&nbsp;790&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-hyal"><div class="pimg2" role="img" aria-label="Сыворотка с гиалуроновой кислотой"></div><div class="tag">Актив</div><h3>Сыворотка с гиалуроновой кислотой</h3><div class="vol">30&nbsp;мл · 1&nbsp;790&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-niac"><div class="pimg2" role="img" aria-label="Сыворотка с ниацинамидом"></div><div class="tag">Актив</div><h3>Сыворотка с ниацинамидом</h3><div class="vol">30&nbsp;мл · 1&nbsp;790&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-bal"><div class="pimg2" role="img" aria-label="Сыворотка-баланс для чувствительной кожи"></div><div class="tag">Актив</div><h3>Сыворотка-баланс для чувствительной кожи</h3><div class="vol">30&nbsp;мл · 1&nbsp;890&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-cream"><div class="pimg2" role="img" aria-label="Увлажняющий крем для лица"></div><div class="tag">Крем на день</div><h3>Увлажняющий крем для лица</h3><div class="vol">50&nbsp;мл · 1&nbsp;690&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-gelcream"><div class="pimg2" role="img" aria-label="Лёгкий гель-крем для жирной кожи"></div><div class="tag">Крем на день</div><h3>Лёгкий гель-крем для жирной кожи</h3><div class="vol">50&nbsp;мл · 1&nbsp;590&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-spf"><div class="pimg2" role="img" aria-label="SPF-флюид 50"></div><div class="tag">Утренняя защита</div><h3>SPF-флюид 50</h3><div class="vol">40&nbsp;мл · 1&nbsp;290&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
+      <div class="pc pc-night"><div class="pimg2" role="img" aria-label="Ночной восстанавливающий крем"></div><div class="tag">Вечерний уход</div><h3>Ночной восстанавливающий крем</h3><div class="vol">50&nbsp;мл · 1&nbsp;990&nbsp;₽</div><details class="buy"><summary>Купить</summary><p>Покупка пока не подключена: это учебный концепт.</p></details></div>
     </div>
   </div>
 </div>
